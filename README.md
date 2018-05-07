@@ -25,10 +25,10 @@ https://oracle.github.io/odpi/doc/installation.html#linux
 
 
 ##### Create file db_config.py
-user = "user"
-passwd = "password"
-dsn = "0.0.0.0/oracledb"
-server = "0.0.0.0"
-port = port number
-sid = "yoursid"
+user = "user"  
+passwd = "password"  
+dsn = "0.0.0.0/oracledb"  
+server = "0.0.0.0"  
+port = port number  
+sid = "yoursid"  
 
