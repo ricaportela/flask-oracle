@@ -1,6 +1,6 @@
 .idea/
 .vscode/
-db_config.py
+db_config.py*
 
 
 
