@@ -46,7 +46,22 @@ class OracleDB:
         result = self.conn.execute("SELECT * FROM permissao")
         for result in result:
             print(result)
+    
+    def camerasbyclientid(self):
+        rconn = self.engine.raw_connection()
+        cur = rconn.connection.cursor()
+        l_cur = cur.var(cx_Oracle.CURSOR)
+        res = cur.callproc('PKG_CAMERA.PRC_SELECT_CAMERA_QTY_BY_CLIENT', [701, l_cur])
+        l_res = l_cur.getvalue().fetchall()
+            
+        return l_res
 
+    def clientesqty(self):
+        rconn = self.engine.raw_connection()
+        cur = rconn.connection.cursor()
+        l_cur = cur.var(cx_Oracle.CURSOR)
+        res = cur.callproc('PKG_CLIENTE.PRC_SELECT_CLIENT_QTY', [0, ])
+        return res
 
     def connection_close(self):
         self.conn.close()
@@ -56,5 +71,6 @@ class OracleDB:
 if __name__ == '__main__':
     ora = OracleDB()
     ora.connect()
-    ora.resultado()
+    print(ora.camerasbyclientid())
+    print(ora.clientesqty())
     ora.connection_close()
