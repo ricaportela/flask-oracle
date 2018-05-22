@@ -20,7 +20,7 @@ class OracleDB:
         self.engine = None
         self.conn = None
         self.rconn = None
-
+        self.oracle_connection_string = None
         # self.oracle_connection_string = ('oracle+cx_oracle://{self.username}:{self.password}@' +
         #     cx_Oracle.makedsn('{self.hostname}', '{self.port}', service_name='{self.sid}')
         # )
