@@ -1,0 +1,15 @@
+conectou...
+antes fetch ->  902091
+antes fetch ->  902091
+depois fetch ->  902139
+Diff =  48
+Fechou...
+
+
+
+conectou...
+antes fetch ->  877765
+antes fetch ->  877765
+depois fetch ->  877810
+Diff =  45
+Fechou...
