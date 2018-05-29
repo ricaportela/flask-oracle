@@ -47,7 +47,7 @@ class OracleDB:
             exit(1)
 
     def resultado(self):
-        res = self.conn.execute("SELECT * FROM permissao")
+        res = self.conn.execute("SELECT * FROM clientes")
         payload = []
         content = {}
         for result in res:
@@ -71,14 +71,14 @@ class OracleDB:
 
     def clientesqty(self):
         cur = self.rconn.connection.cursor()
-        l_cur = cur.var(cx_Oracle.CURSOR)
+        cur.var(cx_Oracle.CURSOR)
         res = cur.callproc('PKG_CLIENTE.PRC_SELECT_CLIENT_QTY', [0, ])
         return res
 
     def clientesids(self):
         cur = self.rconn.connection.cursor()
         l_cur = cur.var(cx_Oracle.CURSOR)
-        res = cur.callproc('PKG_CLIENTE.PRC_SELECT_CLIENT_IDS', [l_cur])
+        cur.callproc('PKG_CLIENTE.PRC_SELECT_CLIENT_IDS', [l_cur])
         list_ids = l_cur.getvalue().fetchall()
 
         payload = []
@@ -98,7 +98,7 @@ class OracleDB:
             cursor = self.rconn.cursor()
             cursor.arraysize = size
             start_time = datetime.datetime.today()
-            results = cursor.execute(sql).fetchall()
+            cursor.execute(sql).fetchall()
             end_time = datetime.datetime.today()
             cursor.close()
             print("Consultando... {}".format(size), end_time - start_time)
@@ -110,8 +110,8 @@ class OracleDB:
         print("Fechou...")
 
 
-# if __name__ == '__main__':
-#     ora = OracleDB()
-#     ora.connect()
-#     ora.clientall()
-#     ora.connection_close()
+if __name__ == '__main__':
+    ora = OracleDB()
+    ora.connect()
+    ora.resultado()
+    ora.connection_close()
