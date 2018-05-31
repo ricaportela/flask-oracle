@@ -3,7 +3,7 @@
 .env
 backup/
 
-
+dbsqlalchemy.py
 
 
 # Byte-compiled / optimized / DLL files
@@ -107,3 +107,4 @@ ENV/
 
 # mypy
 .mypy_cache/
+dbsqlalchemy.py
